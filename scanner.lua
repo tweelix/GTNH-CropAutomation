@@ -12,6 +12,7 @@ local function scan()
         return {isCrop=true, name='air'}
 
     elseif rawResult.name == 'IC2:blockCrop' then
+        print(rawResult)
 
         -- EMPTY CROP STICK
         if rawResult['crop:name'] == nil then
