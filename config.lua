@@ -49,6 +49,10 @@ local config = {
     -- The coordinate for the transvector dislocator
     dislocatorPos = {1, 2},
 
+    tempSeedPos = {1, 4},
+    queuePos = {1, 5},
+    finalSeedPos = {1, 6},
+
     -- The slot for the spade
     spadeSlot = 0,
     -- The slot for the transvector binder

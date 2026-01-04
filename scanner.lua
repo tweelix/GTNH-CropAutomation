@@ -6,13 +6,14 @@ local geolyzer = component.geolyzer
 
 local function scan()
     local rawResult = geolyzer.analyze(sides.down)
+    print("RAWRESULT")
+    print(rawResult)
 
     -- AIR
     if rawResult.name == 'minecraft:air' or rawResult.name == 'GalacticraftCore:tile.brightAir' then
         return {isCrop=true, name='air'}
 
     elseif rawResult.name == 'IC2:blockCrop' then
-        print(rawResult)
 
         -- EMPTY CROP STICK
         if rawResult['crop:name'] == nil then
