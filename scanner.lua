@@ -6,8 +6,6 @@ local geolyzer = component.geolyzer
 
 local function scan()
     local rawResult = geolyzer.analyze(sides.down)
-    print("RAWRESULT")
-    print(rawResult)
 
     -- AIR
     if rawResult.name == 'minecraft:air' or rawResult.name == 'GalacticraftCore:tile.brightAir' then

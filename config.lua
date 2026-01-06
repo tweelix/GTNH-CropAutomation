@@ -4,7 +4,7 @@ local config = {
     -- Side Length of Working Farm
     workingFarmSize = 6,
     -- Side Length of Storage Farm
-    storageFarmSize = 9,
+    storageFarmSize = 7,
 
     -- Once complete, remove all extra crop sticks to prevent the working farm from weeding
     cleanUp = true,
@@ -52,6 +52,9 @@ local config = {
     tempSeedPos = {1, 4},
     queuePos = {1, 5},
     finalSeedPos = {1, 6},
+    finalSeedBin = {1, 7},
+    maxHarvestTries = 20,
+    harvestSleep = 1,
 
     -- The slot for the spade
     spadeSlot = 0,
@@ -60,7 +63,7 @@ local config = {
     -- The slot for crop sticks
     stickSlot = -2,
     -- The slot which the robot will stop storing items
-    storageStopSlot = -3
+    storageStopSlot = -7
 }
 
 config.workingFarmArea = config.workingFarmSize^2

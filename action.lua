@@ -24,7 +24,7 @@ end
 
 
 local function fullInventory()
-    for i=1, robot.inventorySize() do
+    for i=1, robot.inventorySize() + config.storageStopSlot do
         if robot.count(i) == 0 then
             return false
         end
@@ -70,6 +70,50 @@ local function dumpInventory()
     robot.select(selectedSlot)
 end
 
+local function dumpInventorypos(pos)
+    local selectedSlot = robot.select()
+    gps.go(pos)
+
+    for i=1, (robot.inventorySize() + config.storageStopSlot) do
+        os.sleep(0)
+        if robot.count(i) > 0 then
+            robot.select(i)
+            for e=1, inventory_controller.getInventorySize(sides.down) do
+                if inventory_controller.getStackInSlot(sides.down, e) == nil then
+                    inventory_controller.dropIntoSlot(sides.down, e)
+                    break
+                end
+            end
+        end
+    end
+
+    robot.select(selectedSlot)
+end
+
+
+local function dumpInventoryCunt()
+    local selectedSlot = robot.select()
+    gps.go(config.tempSeedPos)
+
+    for i = 1, (robot.inventorySize() + config.storageStopSlot) do
+        os.sleep(0)
+        local stack = inventory_controller.getStackInInternalSlot(i)
+        -- print(stack.name)
+        if stack and stack.name == "IC2:itemCropSeed" then
+            robot.select(i)
+            for e=1, inventory_controller.getInventorySize(sides.down) do
+                if inventory_controller.getStackInSlot(sides.down, e) == nil then
+                    inventory_controller.dropIntoSlot(sides.down, e)
+                    break
+                end
+            end
+        end
+    end
+
+    robot.select(selectedSlot)
+    dumpInventory()
+    selectedSlot = robot.select()
+end
 
 local function placeCropStick(count)
     local selectedSlot = robot.select()
@@ -128,7 +172,18 @@ local function harvest()
         dumpInventory()
         gps.resume()
     end
-    
+
+    robot.swingDown()
+    robot.suckDown()
+end
+
+local function harvestcunt()
+    if fullInventory() then
+        gps.save()
+        dumpInventoryCunt()
+        gps.resume()
+    end
+
     robot.swingDown()
     robot.suckDown()
 end
@@ -264,5 +319,8 @@ return {
     harvest = harvest,
     transplant = transplant,
     cleanUp = cleanUp,
-    initWork = initWork
+    initWork = initWork,
+    dumpInventoryCunt = dumpInventoryCunt,
+    harvestcunt = harvestcunt,
+    dumpInventorypos= dumpInventorypos
 }
