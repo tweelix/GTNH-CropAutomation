@@ -3,15 +3,21 @@ local args = {...}
 local branch
 local repo
 local scripts = {
-    'action.lua',
+    'action.lua ',
+    'autoSpread.lua',
+    'autoSpreadImpl.lua',
+    'autoStat.lua',
+    'autoStatImpl.lua',
+    'autoTier.lua',
+    'autoTierImpl.lua',
+    'chestsorter.lua',
+    'config.lua',
+    'cunt.lua',
     'database.lua',
     'events.lua',
     'gps.lua',
     'scanner.lua',
-    'config.lua',
-    'autoStat.lua',
-    'autoTier.lua',
-    'autoSpread.lua',
+    'transfer.lua',
     'uninstall.lua'
 }
 
