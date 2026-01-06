@@ -70,7 +70,7 @@ local function cuntOnce()
     action.dumpInventoryCunt()
     gps.go(config.tempSeedPos)
     csort.sortChest(sides.down)
-    transfer.transferFirst(15, config.tempSeedPos, config.finalSeedPos)
+    transfer.transferFirst(config.seedsToKeep, config.tempSeedPos, config.finalSeedPos)
     transfer.transferAll(config.tempSeedPos, config.finalSeedBin)
     return true
 end
