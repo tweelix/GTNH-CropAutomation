@@ -55,7 +55,7 @@ local config = {
     finalSeedBin = {1, 7},
     maxHarvestTries = 20,
     harvestSleep = 20,
-    seedsToKeep = 25
+    seedsToKeep = 25,
 
     -- The slot for the spade
     spadeSlot = 0,
